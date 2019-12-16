@@ -119,6 +119,14 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " 複数タブを同一の状態で扱う
 NeoBundle 'jistr/vim-nerdtree-tabs.git'
 
+" アンドゥツリーをビジュアル化
+NeoBundle 'mbbill/undotree'
+nnoremap <F5> :UndotreeToggle<cr>
+
+" 構文エラーチェック
+NeoBundle 'scrooloose/syntastic.git'
+
+
 " Go言語サポート
 NeoBundle 'fatih/vim-go'
 let g:go_fmt_command = "goimports"
@@ -153,13 +161,6 @@ if executable('go-langserver')
     au FileType go setlocal omnifunc=lsp#complete
   augroup END
 endif
-
-" アンドゥツリーをビジュアル化
-NeoBundle 'mbbill/undotree'
-nnoremap <F5> :UndotreeToggle<cr>
-
-" 構文エラーチェック
-NeoBundle 'scrooloose/syntastic.git'
 
 "----------------------------------------------------------
 call neobundle#end()
